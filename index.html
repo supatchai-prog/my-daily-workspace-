@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workspace Infographic Hub | ศูนย์รวมงาน Sheets & Web Apps</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"Sarabun"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              500: '#0284c7',
+              600: '#0369a1',
+              900: '#0c4a6e',
+            }
+          },
+          boxShadow: {
+            'infographic': '0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.03)',
+            'infographic-hover': '0 20px 35px -10px rgba(15, 23, 42, 0.12), 0 10px 15px -5px rgba(15, 23, 42, 0.06)',
+            'glow-emerald': '0 10px 25px -5px rgba(16, 185, 129, 0.25)',
+            'glow-indigo': '0 10px 25px -5px rgba(99, 102, 241, 0.25)',
+            'glow-amber': '0 10px 25px -5px rgba(245, 158, 11, 0.25)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', 'Sarabun', sans-serif;
+      background-color: #f8fafc;
+      background-image: 
+        radial-gradient(at 10% 10%, rgba(99, 102, 241, 0.04) 0px, transparent 50%),
+        radial-gradient(at 90% 20%, rgba(14, 165, 233, 0.05) 0px, transparent 50%),
+        radial-gradient(at 50% 90%, rgba(244, 63, 94, 0.03) 0px, transparent 50%);
+    }
+
+    .infographic-bg-grid {
+      background-size: 24px 24px;
+      background-image: linear-gradient(to right, rgba(226, 232, 240, 0.4) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(226, 232, 240, 0.4) 1px, transparent 1px);
+    }
+
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #f1f5f9;
+      border-radius: 9999px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    .card-infographic {
+      transition: all 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .card-infographic:hover {
+      transform: translateY(-4px);
+    }
+
+    /* Dashed timeline connectors */
+    .timeline-step::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -24px;
+      width: 24px;
+      height: 2px;
+      border-top: 2px dashed #cbd5e1;
+      z-index: 1;
+    }
+    @media (max-width: 1024px) {
+      .timeline-step::after { display: none; }
+    }
+  </style>
+</head>
+
+<body class="text-slate-800 antialiased min-h-screen flex flex-col infographic-bg-grid">
+
+  <!-- Infographic Sticky Topbar -->
+  <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand & Title Badge -->
+      <div class="flex items-center space-x-3.5">
+        <div class="relative w-11 h-11 rounded-2xl bg-gradient-to-tr from-indigo-600 via-sky-500 to-emerald-400 p-[2px] shadow-sm">
+          <div class="w-full h-full bg-slate-900 rounded-[14px] flex items-center justify-center text-white">
+            <i class="fa-solid fa-layer-group text-lg text-sky-400"></i>
+          </div>
+          <span class="absolute -bottom-1 -right-1 flex h-3.5 w-3.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-emerald-500 ring-2 ring-white"></span>
+          </span>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-base sm:text-lg font-black text-slate-900 tracking-tight flex items-center gap-1.5">
+              <span>WORKFLOW</span>
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-500 to-indigo-600">HUB</span>
+            </h1>
+            <span class="text-[10px] font-black px-2 py-0.5 rounded-md bg-slate-900 text-amber-300 uppercase tracking-widest">
+              INFOGRAPHIC
+            </span>
+          </div>
+          <p class="text-[11px] text-slate-500 font-medium hidden sm:block">แผนผังศูนย์รวม Google Sheets & Web Apps ประจำวัน</p>
+        </div>
+      </div>
+
+      <!-- Quick Actions, Clock & Tools -->
+      <div class="flex items-center space-x-2 sm:space-x-3">
+        <div id="liveClock" class="hidden md:flex flex-col text-right text-xs pr-3 border-r border-slate-200">
+          <div class="flex items-center gap-1.5 justify-end">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span id="clockTime" class="font-mono font-black text-slate-800 text-sm tracking-wide">--:--:--</span>
+          </div>
+          <span id="clockDate" class="text-slate-400 text-[10px] font-medium">--</span>
+        </div>
+
+        <button onclick="openModal('projectModal')" class="inline-flex items-center gap-2 px-3.5 py-2 bg-gradient-to-r from-slate-900 to-indigo-950 hover:from-slate-800 hover:to-indigo-900 active:scale-95 text-white text-xs sm:text-sm font-bold rounded-xl shadow-md transition-all">
+          <i class="fa-solid fa-plus-circle text-amber-400"></i>
+          <span>เพิ่มงานใหม่</span>
+        </button>
+
+        <button onclick="toggleSidePanel()" title="สิ่งที่ต้องทำ & โน้ตสูตร" class="relative p-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 shadow-xs transition">
+          <i class="fa-solid fa-clipboard-check text-slate-600"></i>
+          <span id="todoBadge" class="absolute -top-1.5 -right-1.5 min-w-[18px] h-[18px] text-[10px] font-black bg-rose-500 text-white rounded-full flex items-center justify-center shadow-sm px-1">0</span>
+        </button>
+
+        <button onclick="openDataSettingsModal()" title="สำรอง / นำเข้าข้อมูล" class="p-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 shadow-xs transition">
+          <i class="fa-solid fa-sliders text-slate-600"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+
+    <!-- HERO INFOGRAPHIC CARD: Daily Workflow Pipeline -->
+    <div class="relative overflow-hidden rounded-3xl bg-slate-900 text-white p-6 sm:p-7 shadow-2xl border border-slate-800">
+      <!-- Background Graphic Accents -->
+      <div class="absolute -right-16 -top-16 w-80 h-80 bg-indigo-600/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -left-16 -bottom-16 w-80 h-80 bg-sky-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+        <!-- Infographic Title & Summary -->
+        <div class="max-w-xl">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-sky-300 text-xs font-bold border border-white/15 backdrop-blur-md mb-3">
+            <span class="w-2 h-2 rounded-full bg-sky-400 animate-ping"></span>
+            <span id="greetingTimeOfDay">ระบบพร้อมทำงาน</span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-black tracking-tight text-white leading-tight">
+            Daily Operational <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-teal-300 to-indigo-300">Infographic Hub</span>
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-300 mt-2 font-normal leading-relaxed">
+            เชื่อมต่อชีตหลัก ระบบ Web App แดชบอร์ด และสคริปต์อัตโนมัติ ติดตามกระบวนการทำงานตลอดทั้งวันได้จากผังอินโฟกราฟิกด้านล่าง
+          </p>
+        </div>
+
+        <!-- Quick Launch Morning Routine Button -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+          <button onclick="launchAllPinned()" class="group relative inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-2xl bg-gradient-to-r from-amber-400 via-amber-300 to-amber-400 text-slate-950 font-extrabold text-xs sm:text-sm shadow-lg shadow-amber-400/20 hover:scale-[1.02] active:scale-95 transition-all">
+            <div class="w-7 h-7 rounded-xl bg-slate-950/10 flex items-center justify-center">
+              <i class="fa-solid fa-bolt text-amber-900 group-hover:scale-110 transition-transform"></i>
+            </div>
+            <div class="text-left">
+              <div class="text-[10px] text-amber-950 uppercase tracking-wider font-black">Morning Routine</div>
+              <div class="font-black">เปิดงานเช้าพร้อมกัน (<span id="btnPinnedCount">0</span> รายการ)</div>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- Visual Flowchart / Workflow Pipeline -->
+      <div class="relative mt-8 pt-6 border-t border-slate-800/80">
+        <div class="text-[11px] font-black text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+          <i class="fa-solid fa-diagram-project text-sky-400"></i>
+          วงจรการเปิดงานประจำวัน (Daily Pipeline Step-by-Step)
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 relative">
+          <!-- Step 1: Morning Check-in -->
+          <div class="timeline-step relative bg-slate-800/70 hover:bg-slate-800 border border-slate-700/80 rounded-2xl p-4 transition">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-black px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 border border-sky-400/30">PHASE 01</span>
+              <span class="text-[11px] text-slate-400 font-mono">08:30 - 09:30</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center text-lg shrink-0">
+                <i class="fa-regular fa-sun"></i>
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-white">ตรวจสต็อก & เปิดงานเช้า</h4>
+                <p class="text-[11px] text-slate-400 mt-0.5">Master Sheets & Check-in GPS</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Midday Operations -->
+          <div class="timeline-step relative bg-slate-800/70 hover:bg-slate-800 border border-slate-700/80 rounded-2xl p-4 transition">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-black px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-400/30">PHASE 02</span>
+              <span class="text-[11px] text-slate-400 font-mono">10:00 - 16:30</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-lg shrink-0">
+                <i class="fa-solid fa-network-wired"></i>
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-white">ดำเนินงาน & Web Apps</h4>
+                <p class="text-[11px] text-slate-400 mt-0.5">เบิกของ, Webhook & LINE Notify</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Evening Close & Backup -->
+          <div class="relative bg-slate-800/70 hover:bg-slate-800 border border-slate-700/80 rounded-2xl p-4 transition">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-black px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">PHASE 03</span>
+              <span class="text-[11px] text-slate-400 font-mono">17:00 - 18:00</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg shrink-0">
+                <i class="fa-solid fa-chart-column"></i>
+              </div>
+              <div>
+                <h4 class="text-xs font-bold text-white">สรุปยอด & Backup อัตโนมัติ</h4>
+                <p class="text-[11px] text-slate-400 mt-0.5">Looker Dashboard & GAS Triggers</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INFOGRAPHIC METRIC CARDS + ECOSYSTEM DISTRIBUTION -->
+    <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+      <!-- Metric 1: Total Ecosystem Tools -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-infographic flex items-center justify-between">
+        <div>
+          <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">เครื่องมือทั้งหมด</span>
+          <span id="metricTotalTools" class="text-2xl sm:text-3xl font-black text-slate-900 mt-0.5 block">0</span>
+          <span class="text-[10px] text-emerald-600 font-semibold flex items-center gap-1 mt-1">
+            <i class="fa-solid fa-circle-check"></i> พร้อมใช้งาน 100%
+          </span>
+        </div>
+        <div class="w-12 h-12 rounded-2xl bg-slate-900 text-amber-300 flex items-center justify-center text-xl shadow-md">
+          <i class="fa-solid fa-cubes-stacked"></i>
+        </div>
+      </div>
+
+      <!-- Metric 2: Master Spreadsheets -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-infographic flex items-center justify-between">
+        <div>
+          <span class="text-[10px] font-bold text-emerald-700 uppercase tracking-wider block">Google Sheets</span>
+          <span id="metricTotalSheets" class="text-2xl sm:text-3xl font-black text-emerald-600 mt-0.5 block">0</span>
+          <span class="text-[10px] text-slate-400 font-medium block mt-1">ฐานข้อมูลหลัก & คำนวณ</span>
+        </div>
+        <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-200/70 flex items-center justify-center text-xl">
+          <i class="fa-solid fa-table"></i>
+        </div>
+      </div>
+
+      <!-- Metric 3: Web Apps & Automation -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-infographic flex items-center justify-between">
+        <div>
+          <span class="text-[10px] font-bold text-indigo-700 uppercase tracking-wider block">Apps & Scripts</span>
+          <span id="metricTotalApps" class="text-2xl sm:text-3xl font-black text-indigo-600 mt-0.5 block">0</span>
+          <span class="text-[10px] text-slate-400 font-medium block mt-1">เว็บแอปและระบบอัตโนมัติ</span>
+        </div>
+        <div class="w-12 h-12 rounded-2xl bg-indigo-50 text-indigo-600 border border-indigo-200/70 flex items-center justify-center text-xl">
+          <i class="fa-solid fa-code-branch"></i>
+        </div>
+      </div>
+
+      <!-- Metric 4: Daily Checklist Status -->
+      <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-infographic flex items-center justify-between cursor-pointer hover:border-amber-400 transition" onclick="toggleSidePanel()">
+        <div>
+          <span class="text-[10px] font-bold text-amber-700 uppercase tracking-wider block">สิ่งที่ต้องทำวันนี้</span>
+          <div class="flex items-baseline gap-1 mt-0.5">
+            <span id="metricTodosPending" class="text-2xl sm:text-3xl font-black text-slate-900">0</span>
+            <span class="text-xs text-slate-400 font-bold">งานค้าง</span>
+          </div>
+          <span class="text-[10px] text-indigo-600 font-semibold flex items-center gap-1 mt-1">
+            <i class="fa-solid fa-arrow-right"></i> เปิดสมุดเช็กลิสต์
+          </span>
+        </div>
+        <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 border border-amber-200/70 flex items-center justify-center text-xl">
+          <i class="fa-solid fa-list-check"></i>
+        </div>
+      </div>
+    </div>
+
+    <!-- INFOGRAPHIC ECOSYSTEM RATIO BAR (Live computed distribution) -->
+    <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200/90 shadow-infographic">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+        <div class="flex items-center gap-2">
+          <div class="w-2.5 h-2.5 rounded-full bg-indigo-600"></div>
+          <h3 class="text-xs font-bold text-slate-800 uppercase tracking-wider">
+            สัดส่วนโครงสร้างระบบงาน (Workspace Ecosystem Ratio)
+          </h3>
+        </div>
+        <div class="flex items-center gap-3 text-[11px] font-medium text-slate-500">
+          <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500 inline-block"></span> Sheets</span>
+          <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-indigo-600 inline-block"></span> Web Apps</span>
+          <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-500 inline-block"></span> Scripts</span>
+          <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-rose-500 inline-block"></span> Dashboards</span>
+          <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-sky-500 inline-block"></span> Docs/Drive</span>
+        </div>
+      </div>
+
+      <!-- Segmented Visual Bar -->
+      <div class="w-full h-3.5 rounded-full bg-slate-100 flex overflow-hidden p-0.5 gap-0.5" id="ratioBarContainer">
+        <!-- Injected via JavaScript based on percentage -->
+      </div>
+    </div>
+
+    <!-- PINNED FAVORITES (Quick Access Hub) -->
+    <div id="quickLaunchSection" class="hidden">
+      <div class="flex items-center justify-between mb-3 px-1">
+        <h3 class="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-2">
+          <span class="w-6 h-6 rounded-lg bg-amber-100 text-amber-600 flex items-center justify-center text-xs">
+            <i class="fa-solid fa-star"></i>
+          </span>
+          <span>PINNED MORNING ROUTINE (งานที่ต้องเปิดทุกเช้า)</span>
+        </h3>
+        <span class="text-[11px] text-slate-400">คลิกที่การ์ดเพื่อเปิดแท็บทันที</span>
+      </div>
+      <div id="pinnedGrid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+
+    <!-- SEARCH, FILTER & INFOGRAPHIC VIEW CONTROLS -->
+    <div class="bg-white rounded-2xl p-4 border border-slate-200/90 shadow-infographic flex flex-col lg:flex-row gap-3 items-stretch lg:items-center justify-between">
+      
+      <!-- Search Input -->
+      <div class="relative flex-1">
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+        <input 
+          type="text" 
+          id="searchInput" 
+          oninput="handleSearch(this.value)" 
+          placeholder="ค้นหาชื่อโปรเจกต์, ชีต, เว็บแอป, แท็ก (#HR, #คลังสินค้า)... (กด / เพื่อค้นหา)" 
+          class="w-full pl-10 pr-10 py-2.5 text-xs sm:text-sm bg-slate-50/80 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-sky-500 focus:bg-white transition"
+        >
+        <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
+          <i class="fa-solid fa-circle-xmark text-sm"></i>
+        </button>
+      </div>
+
+      <!-- Categories & View Mode Switcher -->
+      <div class="flex flex-wrap items-center gap-2 justify-between lg:justify-end">
+        <!-- View Mode: Infographic Grouped vs Flat Matrix -->
+        <div class="inline-flex p-1 rounded-xl bg-slate-100 border border-slate-200 text-xs font-semibold">
+          <button id="viewGroupedBtn" onclick="setViewMode('grouped')" class="px-2.5 py-1.5 rounded-lg transition flex items-center gap-1.5 bg-white text-slate-900 shadow-xs">
+            <i class="fa-solid fa-network-wired text-[11px] text-sky-500"></i>
+            <span>ผังแยกหมวด</span>
+          </button>
+          <button id="viewFlatBtn" onclick="setViewMode('flat')" class="px-2.5 py-1.5 rounded-lg transition flex items-center gap-1.5 text-slate-600 hover:text-slate-900">
+            <i class="fa-solid fa-table-cells text-[11px]"></i>
+            <span>ตารางรวม</span>
+          </button>
+        </div>
+
+        <!-- Filter Pills with Badge Counts -->
+        <div class="flex items-center gap-1.5 overflow-x-auto pb-0.5 custom-scroll text-xs">
+          <button onclick="setFilter('all')" class="filter-pill active-pill px-3 py-1.5 rounded-xl border border-transparent bg-slate-900 text-white font-bold whitespace-nowrap" data-filter="all">
+            ทั้งหมด (<span id="countAll">0</span>)
+          </button>
+          <button onclick="setFilter('sheet')" class="filter-pill px-3 py-1.5 rounded-xl border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 font-semibold whitespace-nowrap" data-filter="sheet">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block mr-1"></span> Sheets (<span id="countSheet">0</span>)
+          </button>
+          <button onclick="setFilter('webapp')" class="filter-pill px-3 py-1.5 rounded-xl border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 font-semibold whitespace-nowrap" data-filter="webapp">
+            <span class="w-2 h-2 rounded-full bg-indigo-600 inline-block mr-1"></span> Web Apps (<span id="countWebapp">0</span>)
+          </button>
+          <button onclick="setFilter('script')" class="filter-pill px-3 py-1.5 rounded-xl border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 font-semibold whitespace-nowrap" data-filter="script">
+            <span class="w-2 h-2 rounded-full bg-amber-500 inline-block mr-1"></span> Scripts (<span id="countScript">0</span>)
+          </button>
+          <button onclick="setFilter('dashboard')" class="filter-pill px-3 py-1.5 rounded-xl border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 font-semibold whitespace-nowrap" data-filter="dashboard">
+            <span class="w-2 h-2 rounded-full bg-rose-500 inline-block mr-1"></span> Dashboards (<span id="countDash">0</span>)
+          </button>
+          <button onclick="setFilter('doc')" class="filter-pill px-3 py-1.5 rounded-xl border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 font-semibold whitespace-nowrap" data-filter="doc">
+            <span class="w-2 h-2 rounded-full bg-sky-500 inline-block mr-1"></span> Drive (<span id="countDoc">0</span>)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Categorized Infographic Display Container -->
+    <div id="categorizedContainer" class="space-y-8">
+      <!-- Injected by JavaScript dynamically -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="emptyState" class="hidden text-center py-16 bg-white rounded-3xl border-2 border-dashed border-slate-200">
+      <div class="w-16 h-16 rounded-2xl bg-sky-50 flex items-center justify-center mx-auto mb-3 text-sky-500 text-2xl">
+        <i class="fa-solid fa-compass-drafting"></i>
+      </div>
+      <h3 class="text-base font-bold text-slate-800">ไม่พบงานหรือโปรเจกต์ที่ค้นหา</h3>
+      <p class="text-xs text-slate-400 mt-1 max-w-sm mx-auto">ลองค้นหาด้วยคำอื่น หรือกดปุ่ม "เพิ่มงานใหม่" เพื่อบันทึกลิงก์ระบบลงในผังข้อมูล</p>
+      <button onclick="openModal('projectModal')" class="mt-4 px-4 py-2 bg-slate-900 text-white rounded-xl text-xs font-bold hover:bg-sky-600 transition">
+        + เพิ่มรายการเข้าสู่ระบบ
+      </button>
+    </div>
+  </main>
+
+  <!-- Side Drawer: Daily Checklist & Formulas/Notes -->
+  <div id="sidePanelOverlay" onclick="toggleSidePanel()" class="fixed inset-0 bg-slate-900/50 backdrop-blur-xs z-40 hidden transition-opacity"></div>
+  <aside id="sidePanel" class="fixed top-0 right-0 h-full w-full max-w-md bg-white border-l border-slate-200 shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col">
+    <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/90">
+      <div class="flex items-center space-x-3">
+        <div class="w-9 h-9 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold text-sm shadow-sm">
+          <i class="fa-solid fa-list-check"></i>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-slate-900">เช็กลิสต์งาน & วางสูตรด่วน</h3>
+          <p class="text-[11px] text-slate-500">บันทึกช่วยจำและลำดับงานประจำวัน</p>
+        </div>
+      </div>
+      <button onclick="toggleSidePanel()" class="p-2 text-slate-400 hover:text-slate-700 rounded-xl hover:bg-slate-200/50 transition">
+        <i class="fa-solid fa-xmark text-sm"></i>
+      </button>
+    </div>
+
+    <div class="flex-1 overflow-y-auto p-6 space-y-6 custom-scroll">
+      <!-- Todo Task List -->
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <label class="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
+            <i class="fa-solid fa-clipboard-list text-indigo-500"></i> สิ่งที่ต้องทำวันนี้ (Daily Tasks)
+          </label>
+          <button onclick="clearCompletedTodos()" class="text-[11px] font-semibold text-slate-400 hover:text-rose-600 transition">
+            ล้างงานที่เสร็จ
+          </button>
+        </div>
+
+        <div class="flex gap-2 mb-3">
+          <input type="text" id="newTodoInput" placeholder="พิมพ์งานที่ต้องทำแล้วกด Enter..." class="flex-1 text-xs px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500" onkeydown="if(event.key==='Enter') addTodo()">
+          <button onclick="addTodo()" class="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold active:scale-95 transition">เพิ่ม</button>
+        </div>
+        <div id="todoList" class="space-y-2">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+
+      <hr class="border-slate-100">
+
+      <!-- Scratchpad for formulas and IDs -->
+      <div class="flex flex-col flex-1">
+        <div class="flex items-center justify-between mb-2">
+          <label class="text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
+            <i class="fa-solid fa-code text-amber-500"></i>
+            โน้ตสูตรชีต & ID อ้างอิง
+          </label>
+          <span id="scratchSaveStatus" class="text-[10px] text-emerald-600 font-bold">บันทึกอัตโนมัติ</span>
+        </div>
+        <textarea 
+          id="scratchPadText" 
+          rows="9" 
+          oninput="handleScratchpadChange(this.value)" 
+          placeholder="วาง ID ชีต, สูตร =QUERY(), =IMPORTRANGE(), หรือ Webhook URL ชั่วคราวที่นี่..." 
+          class="w-full text-xs p-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-slate-700 custom-scroll resize-y font-mono leading-relaxed"
+        ></textarea>
+        <p class="text-[11px] text-slate-400 mt-2">ข้อมูลจะถูกจำไว้ในเครื่องอัตโนมัติ ไม่สูญหายเมื่อรีเฟรช</p>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Modal: Add / Edit Project -->
+  <div id="projectModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl shadow-2xl w-full max-w-lg overflow-hidden border border-slate-100 transform transition-all">
+      <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/80">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 rounded-xl bg-slate-900 text-amber-300 flex items-center justify-center text-xs">
+            <i class="fa-solid fa-cube"></i>
+          </div>
+          <div>
+            <h3 id="modalTitle" class="text-sm font-bold text-slate-900">เพิ่มรายการงานในผัง</h3>
+            <p class="text-[11px] text-slate-500">ระบุรายละเอียดและหมวดหมู่เพื่อจัดเข้ากระบวนการทำงาน</p>
+          </div>
+        </div>
+        <button onclick="closeModal('projectModal')" class="text-slate-400 hover:text-slate-600 p-1.5 rounded-lg">
+          <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+      </div>
+
+      <form id="projectForm" onsubmit="handleProjectSubmit(event)" class="p-6 space-y-4 text-xs">
+        <input type="hidden" id="formProjectId">
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">ชื่อโปรเจกต์ / ชื่องาน <span class="text-rose-500">*</span></label>
+          <input type="text" id="formTitle" required placeholder="เช่น ชีตตัดสต็อกและบันทึกใบเสร็จ (Master Sheet)" class="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-sky-500 focus:outline-none text-xs">
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">หมวดหมู่งาน <span class="text-rose-500">*</span></label>
+            <select id="formCategory" class="w-full px-3 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-sky-500 focus:outline-none bg-white text-xs font-medium">
+              <option value="sheet">📊 Google Sheets (สเปรดชีต)</option>
+              <option value="webapp">🌐 Web Application (เว็บแอป)</option>
+              <option value="script">⚡ Google Apps Script (GAS)</option>
+              <option value="dashboard">📈 Dashboard (Looker / PowerBI)</option>
+              <option value="doc">📁 Docs & Drive (เอกสาร/โฟลเดอร์)</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">รอบความถี่ในการเปิด</label>
+            <select id="formFrequency" class="w-full px-3 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-sky-500 focus:outline-none bg-white text-xs font-medium">
+              <option value="daily">ทุกวัน (Daily Routine)</option>
+              <option value="weekly">รายสัปดาห์ (Weekly)</option>
+              <option value="monthly">สิ้นเดือน (Monthly)</option>
+              <option value="adhoc">เมื่อมีเคส (Ad-hoc)</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">URL สำหรับเปิดไฟล์หรือเว็บ <span class="text-rose-500">*</span></label>
+          <input type="url" id="formUrl" required placeholder="https://docs.google.com/spreadsheets/d/... หรือ URL หน้าเว็บ" class="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-sky-500 focus:outline-none font-mono text-xs">
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">คำอธิบายหน้าที่หรือการทำงานสั้นๆ</label>
+          <textarea id="formDescription" rows="2" placeholder="อธิบายหน้าที่ของไฟล์นี้ หรือโน้ตช่วยจำก่อนเริ่มรันงาน" class="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-sky-500 focus:outline-none text-xs"></textarea>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">แท็ก / แผนก (คั่นด้วยจุลภาค)</label>
+            <input type="text" id="formTags" placeholder="คลังสินค้า, บัญชี, HR, API" class="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl focus:ring-2 focus:ring-sky-500 focus:outline-none text-xs">
+          </div>
+          <div class="flex items-center pt-5">
+            <label class="inline-flex items-center cursor-pointer select-none">
+              <input type="checkbox" id="formIsPinned" class="sr-only peer">
+              <div class="w-9 h-5 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-amber-400"></div>
+              <span class="ml-2 font-bold text-slate-700 text-xs">ปักหมุดเปิดทุกเช้า ⭐</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 flex items-center justify-end space-x-2">
+          <button type="button" onclick="closeModal('projectModal')" class="px-4 py-2.5 border border-slate-200 rounded-xl text-slate-600 hover:bg-slate-50 font-bold transition">ยกเลิก</button>
+          <button type="submit" class="px-5 py-2.5 bg-slate-900 hover:bg-sky-600 text-white rounded-xl font-bold shadow-md transition">บันทึกข้อมูล</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Custom Confirm Modal -->
+  <div id="confirmModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl shadow-2xl w-full max-w-sm overflow-hidden border border-slate-100 p-6 text-center">
+      <div class="w-12 h-12 rounded-2xl bg-rose-50 text-rose-600 flex items-center justify-center mx-auto mb-3 text-lg">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+      </div>
+      <h4 id="confirmModalTitle" class="text-sm font-bold text-slate-900 mb-1">ยืนยันการทำรายการ</h4>
+      <p id="confirmModalMessage" class="text-xs text-slate-500 mb-5 leading-relaxed">คุณแน่ใจหรือไม่ว่าต้องการดำเนินการ?</p>
+      <div class="flex items-center justify-center gap-2">
+        <button id="confirmCancelBtn" class="flex-1 py-2.5 px-4 border border-slate-200 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-50 transition">ยกเลิก</button>
+        <button id="confirmOkBtn" class="flex-1 py-2.5 px-4 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold shadow-sm transition">ยืนยันลบ</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Data Settings (Export/Import) -->
+  <div id="settingsModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl shadow-xl w-full max-w-md overflow-hidden border border-slate-100 text-xs">
+      <div class="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/80">
+        <div>
+          <h3 class="font-bold text-slate-900 text-sm">การสำรองและย้ายข้อมูล</h3>
+          <p class="text-[11px] text-slate-500">ดาวน์โหลดหรือนำเข้าชุดโปรเจกต์ของคุณ</p>
+        </div>
+        <button onclick="closeModal('settingsModal')" class="text-slate-400 hover:text-slate-600 p-1.5"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="p-6 space-y-4">
+        <div>
+          <h4 class="font-bold text-slate-800 mb-1">ส่งออกข้อมูลสำรอง (Export JSON)</h4>
+          <p class="text-slate-500 mb-2">ดาวน์โหลดรายการโปรเจกต์และเช็กลิสต์ทั้งหมดเป็นไฟล์ .json</p>
+          <button onclick="exportDataJson()" class="w-full py-2.5 px-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl border border-slate-200 transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-download"></i> ดาวน์โหลดไฟล์สำรองข้อมูล
+          </button>
+        </div>
+
+        <hr class="border-slate-100">
+
+        <div>
+          <h4 class="font-bold text-slate-800 mb-1">นำเข้าข้อมูล (Import JSON)</h4>
+          <p class="text-slate-500 mb-2">กู้คืนหรือย้ายข้อมูลจากเครื่องอื่นด้วยไฟล์สำรอง</p>
+          <input type="file" id="importFileInput" accept=".json" class="hidden" onchange="handleFileImport(event)">
+          <button onclick="document.getElementById('importFileInput').click()" class="w-full py-2.5 px-3 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold rounded-xl border border-slate-200 transition flex items-center justify-center gap-2">
+            <i class="fa-solid fa-upload"></i> เลือกไฟล์ .json เพื่อนำเข้า
+          </button>
+        </div>
+
+        <hr class="border-slate-100">
+
+        <div>
+          <h4 class="font-bold text-rose-600 mb-1">คืนค่าชุดข้อมูลตัวอย่าง (Reset to Demo)</h4>
+          <p class="text-slate-500 mb-2">แทนที่ด้วยชุดโปรเจกต์และชีตตัวอย่างเริ่มต้น</p>
+          <button onclick="promptResetToDefault()" class="w-full py-2 px-3 border border-rose-200 text-rose-600 hover:bg-rose-50 font-bold rounded-xl transition">
+            รีเซ็ตเป็นข้อมูลตัวอย่าง
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 bg-slate-900 text-white text-xs px-4 py-3 rounded-2xl shadow-xl flex items-center gap-2.5 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+    <i id="toastIcon" class="fa-solid fa-circle-check text-emerald-400"></i>
+    <span id="toastMessage" class="font-bold">บันทึกสำเร็จ</span>
+  </div>
+
+  <script>
+    /* Default initial dataset categorized cleanly */
+    const DEFAULT_PROJECTS = [
+      {
+        id: 'p1',
+        title: 'Master Sheet: สต็อกสินค้า & คำนวณภาษีใบเสร็จ',
+        category: 'sheet',
+        frequency: 'daily',
+        url: 'https://docs.google.com/spreadsheets/d/demo1',
+        description: 'ศูนย์กลางคำนวณยอดขาย สต็อกคงเหลือ และส่งออกใบกำกับภาษี PDF อัตโนมัติไปยังอีเมลลูกค้า',
+        tags: ['คลังสินค้า', 'บัญชี', 'สูตรอัตโนมัติ'],
+        isPinned: true,
+        lastOpened: null
+      },
+      {
+        id: 'p2',
+        title: 'ชีตคำนวณต้นทุน & วางแผนงบประมาณประจำเดือน',
+        category: 'sheet',
+        frequency: 'monthly',
+        url: 'https://docs.google.com/spreadsheets/d/demo2',
+        description: 'สูตรสรุปยอดค่าใช้จ่ายรายแผนก คำนวณหัก ณ ที่จ่าย 3% และวิเคราะห์กำไรสุทธิ EOD',
+        tags: ['การเงิน', 'งบประมาณ', 'สูตรคำนวณ'],
+        isPinned: false,
+        lastOpened: null
+      },
+      {
+        id: 'p3',
+        title: 'Web App บันทึกเวลาเข้า-ออกงาน (GPS Mobile Check-in)',
+        category: 'webapp',
+        frequency: 'daily',
+        url: 'https://script.google.com/macros/s/demo_webapp/exec',
+        description: 'หน้าเว็บแอปพนักงาน บันทึกพิกัด GPS ลง Google Sheets พร้อมยิงแจ้งเตือนเข้าห้อง LINE HR',
+        tags: ['HR', 'WebApp', 'LINE Notify'],
+        isPinned: true,
+        lastOpened: null
+      },
+      {
+        id: 'p4',
+        title: 'Web App ระบบเบิกพัสดุ & ยืมคืนอุปกรณ์ไอที',
+        category: 'webapp',
+        frequency: 'weekly',
+        url: 'https://script.google.com/macros/s/demo_requisition/exec',
+        description: 'ฟอร์มเบิกของออนไลน์ เช็กสต็อกคงเหลือแบบเรียลไทม์ และระบบอนุมัติผ่านอีเมลหัวหน้างาน',
+        tags: ['ธุรการ', 'พัสดุ', 'Approval'],
+        isPinned: false,
+        lastOpened: null
+      },
+      {
+        id: 'p5',
+        title: 'สคริปต์สำรองข้อมูลชีตอัตโนมัติ (Drive Auto Backup)',
+        category: 'script',
+        frequency: 'daily',
+        url: 'https://script.google.com/d/demo_backup_script/edit',
+        description: 'Google Apps Script ตั้งเวลา Trigger ทุกเที่ยงคืน โคลนไฟล์ชีตหลักแยกโฟลเดอร์ตามเดือน',
+        tags: ['Backup', 'Cron Trigger', 'ความปลอดภัย'],
+        isPinned: false,
+        lastOpened: null
+      },
+      {
+        id: 'p6',
+        title: 'Webhook LINE Bot แจ้งเตือนเมื่อมียอดสั่งซื้อใหม่',
+        category: 'script',
+        frequency: 'adhoc',
+        url: 'https://script.google.com/d/demo_line_bot/edit',
+        description: 'ดักจับ onChange เมื่อมีคนกรอก Google Form แล้วส่ง Flex Message สรุปยอดเข้ากลุ่มเซลส์',
+        tags: ['LINE Messaging API', 'Webhook'],
+        isPinned: false,
+        lastOpened: null
+      },
+      {
+        id: 'p7',
+        title: 'Executive Sales Performance Dashboard',
+        category: 'dashboard',
+        frequency: 'daily',
+        url: 'https://lookerstudio.google.com/reporting/demo_sales',
+        description: 'แดชบอร์ดสรุปยอดขายแยกรายวัน ทีมเซลส์ และสินค้าขายดี ดึงข้อมูลสดจาก Master Spreadsheet',
+        tags: ['ผู้บริหาร', 'Looker Studio', 'KPI'],
+        isPinned: true,
+        lastOpened: null
+      },
+      {
+        id: 'p8',
+        title: 'Google Drive โฟลเดอร์สัญญาและใบเสนอราคาลูกค้า',
+        category: 'doc',
+        frequency: 'weekly',
+        url: 'https://drive.google.com/drive/folders/demo_folder',
+        description: 'คลังเอกสาร PDF สัญญางาน และใบเสนอราคาที่มีการเซ็นรับรองแล้ว',
+        tags: ['เอกสาร', 'Drive', 'สัญญา'],
+        isPinned: false,
+        lastOpened: null
+      }
+    ];
+
+    const DEFAULT_TODOS = [
+      { id: 't1', text: 'ตรวจเช็กยอดสต็อกใน Master Sheet ช่วง 09:30', done: false },
+      { id: 't2', text: 'ตรวจสอบ Error Log สคริปต์ส่งการแจ้งเตือน LINE', done: true }
+    ];
+
+    const CATEGORIES = {
+      sheet: {
+        id: 'sheet',
+        indexNumber: '01',
+        label: 'Google Sheets & Data Core',
+        thaiLabel: 'สเปรดชีตฐานข้อมูล & คำนวณหลัก',
+        icon: 'fa-solid fa-table',
+        themeBg: 'bg-emerald-500',
+        lightBg: 'bg-emerald-50',
+        text: 'text-emerald-700',
+        border: 'border-emerald-200',
+        barColor: '#10b981',
+        description: 'สเปรดชีตคำนวณ ฐานข้อมูล Master และเทมเพลตจัดการงาน'
+      },
+      webapp: {
+        id: 'webapp',
+        indexNumber: '02',
+        label: 'Web Applications & Portals',
+        thaiLabel: 'เว็บแอปพลิเคชัน & พอร์ทัลบริการ',
+        icon: 'fa-solid fa-network-wired',
+        themeBg: 'bg-indigo-600',
+        lightBg: 'bg-indigo-50',
+        text: 'text-indigo-700',
+        border: 'border-indigo-200',
+        barColor: '#6366f1',
+        description: 'เว็บแอปพลิเคชัน ฟอร์มกรอกงาน และระบบบริการออนไลน์'
+      },
+      script: {
+        id: 'script',
+        indexNumber: '03',
+        label: 'Google Apps Script & Automation',
+        thaiLabel: 'ระบบอัตโนมัติ & บอทสคริปต์',
+        icon: 'fa-solid fa-bolt',
+        themeBg: 'bg-amber-500',
+        lightBg: 'bg-amber-50',
+        text: 'text-amber-800',
+        border: 'border-amber-200',
+        barColor: '#f59e0b',
+        description: 'ระบบสคริปต์อัตโนมัติ Cron Job Triggers และ Webhook API'
+      },
+      dashboard: {
+        id: 'dashboard',
+        indexNumber: '04',
+        label: 'Dashboards & KPI Visuals',
+        thaiLabel: 'กระดานสรุปผล & รายงานผู้บริหาร',
+        icon: 'fa-solid fa-chart-pie',
+        themeBg: 'bg-rose-500',
+        lightBg: 'bg-rose-50',
+        text: 'text-rose-700',
+        border: 'border-rose-200',
+        barColor: '#f43f5e',
+        description: 'กระดานสรุปผล วิเคราะห์ตัวเลข และรายงานสำหรับผู้บริหาร'
+      },
+      doc: {
+        id: 'doc',
+        indexNumber: '05',
+        label: 'Google Docs & Drive Repositories',
+        thaiLabel: 'คลังเอกสารสัญญา & โฟลเดอร์ไดรฟ์',
+        icon: 'fa-solid fa-folder-open',
+        themeBg: 'bg-sky-500',
+        lightBg: 'bg-sky-50',
+        text: 'text-sky-700',
+        border: 'border-sky-200',
+        barColor: '#0ea5e9',
+        description: 'โฟลเดอร์ Drive และเอกสารระเบียบการทำงานที่ต้องใช้อ้างอิง'
+      }
+    };
+
+    const FREQUENCY_META = {
+      daily: { label: 'เปิดทุกวัน', icon: 'fa-solid fa-rotate-right', class: 'bg-sky-50 text-sky-700 border-sky-200' },
+      weekly: { label: 'รายสัปดาห์', icon: 'fa-solid fa-calendar-week', class: 'bg-purple-50 text-purple-700 border-purple-200' },
+      monthly: { label: 'สิ้นเดือน', icon: 'fa-regular fa-calendar-check', class: 'bg-orange-50 text-orange-700 border-orange-200' },
+      adhoc: { label: 'เมื่อมีเคส', icon: 'fa-solid fa-bolt-lightning', class: 'bg-slate-100 text-slate-700 border-slate-200' }
+    };
+
+    let state = {
+      projects: [],
+      todos: [],
+      scratchpad: '',
+      currentFilter: 'all',
+      searchQuery: '',
+      viewMode: 'grouped'
+    };
+
+    function initApp() {
+      const savedProjects = localStorage.getItem('ws_projects_infographic');
+      const savedTodos = localStorage.getItem('ws_todos_infographic');
+      const savedScratch = localStorage.getItem('ws_scratchpad_infographic');
+      const savedView = localStorage.getItem('ws_viewmode_infographic');
+
+      state.projects = savedProjects ? JSON.parse(savedProjects) : DEFAULT_PROJECTS;
+      state.todos = savedTodos ? JSON.parse(savedTodos) : DEFAULT_TODOS;
+      state.scratchpad = savedScratch !== null ? savedScratch : 'โน้ตย่อสำคัญสำหรับการทำงานวันนี้:\n- ตรวจเช็กตัวเลขปิดยอดทุกสิ้นวันเวลา 17:30\n- ลิงก์ API Webhook: https://...';
+      state.viewMode = savedView || 'grouped';
+
+      document.getElementById('scratchPadText').value = state.scratchpad;
+
+      setupKeyboardShortcuts();
+      updateGreeting();
+      startClock();
+      renderAll();
+    }
+
+    function saveState() {
+      localStorage.setItem('ws_projects_infographic', JSON.stringify(state.projects));
+      localStorage.setItem('ws_todos_infographic', JSON.stringify(state.todos));
+      localStorage.setItem('ws_scratchpad_infographic', state.scratchpad);
+      localStorage.setItem('ws_viewmode_infographic', state.viewMode);
+      updateCounts();
+      renderDistributionBar();
+    }
+
+    function updateGreeting() {
+      const hour = new Date().getHours();
+      let text = 'สวัสดีตอนเช้า พร้อมเริ่มผังงาน!';
+      if (hour >= 12 && hour < 17) {
+        text = 'สวัสดีตอนบ่าย ลุยงานต่อตามผัง!';
+      } else if (hour >= 17) {
+        text = 'สวัสดีช่วงเย็น ตรวจสอบสรุปยอดก่อนปิดวัน!';
+      }
+      const el = document.getElementById('greetingTimeOfDay');
+      if (el) el.innerText = text;
+    }
+
+    function renderAll() {
+      renderPinnedBar();
+      renderDistributionBar();
+      renderProjects();
+      renderTodoList();
+      updateCounts();
+      updateViewToggleButtons();
+    }
+
+    function updateCounts() {
+      const total = state.projects.length;
+      const countSheets = state.projects.filter(p => p.category === 'sheet').length;
+      const countWebapps = state.projects.filter(p => p.category === 'webapp').length;
+      const countScripts = state.projects.filter(p => p.category === 'script').length;
+      const countDashboards = state.projects.filter(p => p.category === 'dashboard').length;
+      const countDocs = state.projects.filter(p => p.category === 'doc').length;
+
+      document.getElementById('countAll').innerText = total;
+      document.getElementById('countSheet').innerText = countSheets;
+      document.getElementById('countWebapp').innerText = countWebapps;
+      document.getElementById('countScript').innerText = countScripts;
+      document.getElementById('countDash').innerText = countDashboards;
+      document.getElementById('countDoc').innerText = countDocs;
+
+      // Update infographic metric cards
+      document.getElementById('metricTotalTools').innerText = total;
+      document.getElementById('metricTotalSheets').innerText = countSheets;
+      document.getElementById('metricTotalApps').innerText = countWebapps + countScripts;
+
+      const pinned = state.projects.filter(p => p.isPinned);
+      document.getElementById('btnPinnedCount').innerText = pinned.length;
+
+      const uncompletedTodos = state.todos.filter(t => !t.done).length;
+      const todoBadge = document.getElementById('todoBadge');
+      document.getElementById('metricTodosPending').innerText = uncompletedTodos;
+      todoBadge.innerText = uncompletedTodos;
+      todoBadge.style.display = uncompletedTodos > 0 ? 'flex' : 'none';
+    }
+
+    function renderDistributionBar() {
+      const container = document.getElementById('ratioBarContainer');
+      const total = state.projects.length;
+      if (total === 0) {
+        container.innerHTML = `<div class="w-full h-full bg-slate-200 rounded-full"></div>`;
+        return;
+      }
+
+      const count = {
+        sheet: state.projects.filter(p => p.category === 'sheet').length,
+        webapp: state.projects.filter(p => p.category === 'webapp').length,
+        script: state.projects.filter(p => p.category === 'script').length,
+        dashboard: state.projects.filter(p => p.category === 'dashboard').length,
+        doc: state.projects.filter(p => p.category === 'doc').length
+      };
+
+      const pSheets = ((count.sheet / total) * 100).toFixed(1);
+      const pWebapps = ((count.webapp / total) * 100).toFixed(1);
+      const pScripts = ((count.script / total) * 100).toFixed(1);
+      const pDashboards = ((count.dashboard / total) * 100).toFixed(1);
+      const pDocs = ((count.doc / total) * 100).toFixed(1);
+
+      container.innerHTML = `
+        <div style="width: ${pSheets}%;" class="bg-emerald-500 h-full rounded-l transition-all duration-500" title="Sheets: ${pSheets}%"></div>
+        <div style="width: ${pWebapps}%;" class="bg-indigo-600 h-full transition-all duration-500" title="Web Apps: ${pWebapps}%"></div>
+        <div style="width: ${pScripts}%;" class="bg-amber-500 h-full transition-all duration-500" title="Scripts: ${pScripts}%"></div>
+        <div style="width: ${pDashboards}%;" class="bg-rose-500 h-full transition-all duration-500" title="Dashboards: ${pDashboards}%"></div>
+        <div style="width: ${pDocs}%;" class="bg-sky-500 h-full rounded-r transition-all duration-500" title="Docs/Drive: ${pDocs}%"></div>
+      `;
+    }
+
+    function renderPinnedBar() {
+      const container = document.getElementById('pinnedGrid');
+      const section = document.getElementById('quickLaunchSection');
+      const pinnedProjects = state.projects.filter(p => p.isPinned);
+
+      if (pinnedProjects.length === 0) {
+        section.classList.add('hidden');
+        return;
+      }
+      section.classList.remove('hidden');
+
+      container.innerHTML = pinnedProjects.map(item => {
+        const cat = CATEGORIES[item.category] || CATEGORIES.sheet;
+        return `
+          <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" 
+             onclick="recordOpen('${item.id}')"
+             class="group relative block p-3.5 bg-white rounded-2xl border border-slate-200/90 shadow-infographic hover:border-amber-400 hover:shadow-infographic-hover transition card-infographic text-left overflow-hidden">
+            <div class="flex items-center justify-between mb-2">
+              <div class="w-8 h-8 rounded-xl ${cat.lightBg} ${cat.text} flex items-center justify-center text-xs font-bold shadow-xs">
+                <i class="${cat.icon}"></i>
+              </div>
+              <span class="text-[10px] text-amber-500 font-bold flex items-center gap-0.5">
+                <i class="fa-solid fa-star"></i>
+              </span>
+            </div>
+            <h4 class="text-xs font-bold text-slate-800 line-clamp-1 group-hover:text-sky-600 transition">${escapeHtml(item.title)}</h4>
+            <span class="text-[10px] text-slate-400 block truncate mt-0.5 font-medium">${cat.thaiLabel}</span>
+          </a>
+        `;
+      }).join('');
+    }
+
+    function launchAllPinned() {
+      const pinned = state.projects.filter(p => p.isPinned);
+      if (pinned.length === 0) {
+        showToast('ยังไม่มีงานที่ปักหมุดไว้ กดดาวที่การ์ดเพื่อเพิ่มใน Morning Routine ก่อนครับ', true);
+        return;
+      }
+      
+      pinned.forEach(item => {
+        window.open(item.url, '_blank');
+        recordOpen(item.id);
+      });
+      showToast(`เปิดงานเช้า ${pinned.length} แท็บพร้อมกันเรียบร้อยแล้ว`);
+    }
+
+    function renderProjects() {
+      const container = document.getElementById('categorizedContainer');
+      const emptyState = document.getElementById('emptyState');
+
+      const q = state.searchQuery.toLowerCase().trim();
+      const filtered = state.projects.filter(p => {
+        const matchCategory = state.currentFilter === 'all' || p.category === state.currentFilter;
+        const matchSearch = !q || 
+          p.title.toLowerCase().includes(q) ||
+          (p.description && p.description.toLowerCase().includes(q)) ||
+          (p.tags && p.tags.some(t => t.toLowerCase().includes(q)));
+        return matchCategory && matchSearch;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+
+      if (state.viewMode === 'flat' || state.currentFilter !== 'all') {
+        container.innerHTML = `
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            ${filtered.map(item => renderInfographicCard(item)).join('')}
+          </div>
+        `;
+      } else {
+        const categoryKeys = Object.keys(CATEGORIES);
+        let sectionsHtml = '';
+
+        categoryKeys.forEach(catKey => {
+          const catMeta = CATEGORIES[catKey];
+          const itemsInCat = filtered.filter(p => p.category === catKey);
+
+          if (itemsInCat.length > 0) {
+            sectionsHtml += `
+              <section class="bg-white rounded-3xl border border-slate-200/90 shadow-infographic p-5 sm:p-6 transition-all">
+                <!-- Infographic Section Header -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5 pb-4 border-b border-slate-100">
+                  <div class="flex items-center space-x-3.5">
+                    <div class="w-10 h-10 rounded-2xl ${catMeta.themeBg} text-white flex items-center justify-center text-sm font-black shadow-md">
+                      <span>${catMeta.indexNumber}</span>
+                    </div>
+                    <div>
+                      <div class="flex items-center gap-2">
+                        <h3 class="text-sm sm:text-base font-black text-slate-900 tracking-tight">${catMeta.label}</h3>
+                        <span class="text-[11px] px-2.5 py-0.5 rounded-full ${catMeta.lightBg} ${catMeta.text} font-bold border ${catMeta.border}">
+                          ${itemsInCat.length} ระบบ
+                        </span>
+                      </div>
+                      <p class="text-[11px] text-slate-500 font-medium">${catMeta.thaiLabel} • ${catMeta.description}</p>
+                    </div>
+                  </div>
+
+                  <button onclick="openCategoryUrls('${catKey}')" title="เปิดทุกลิงก์ในหมวดนี้พร้อมกัน" class="inline-flex items-center gap-2 text-xs font-bold text-slate-600 hover:text-slate-900 px-3.5 py-2 rounded-xl border border-slate-200 bg-slate-50 hover:bg-slate-100 transition self-start sm:self-auto active:scale-95">
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    <span>เปิดทั้งหมดในหมวด (${itemsInCat.length})</span>
+                  </button>
+                </div>
+
+                <!-- Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  ${itemsInCat.map(item => renderInfographicCard(item)).join('')}
+                </div>
+              </section>
+            `;
+          }
+        });
+
+        container.innerHTML = sectionsHtml;
+      }
+    }
+
+    function renderInfographicCard(item) {
+      const cat = CATEGORIES[item.category] || CATEGORIES.sheet;
+      const freq = FREQUENCY_META[item.frequency] || FREQUENCY_META.daily;
+
+      const tagBadges = (item.tags || []).map(t => `
+        <span class="text-[10px] font-semibold px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 border border-slate-200/60">
+          #${escapeHtml(t.trim())}
+        </span>
+      `).join('');
+
+      return `
+        <div class="relative bg-white rounded-2xl border border-slate-200 hover:border-sky-400 shadow-xs hover:shadow-infographic-hover transition-all duration-200 flex flex-col justify-between overflow-hidden card-infographic group">
+          <!-- Top Colored Accent Stripe -->
+          <div class="h-1.5 w-full" style="background-color: ${cat.barColor};"></div>
+          
+          <div class="p-5 flex-1 flex flex-col">
+            <!-- Badges & Action Toolbar -->
+            <div class="flex items-start justify-between gap-2 mb-3">
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <span class="inline-flex items-center gap-1 text-[10px] px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider ${cat.lightBg} ${cat.text} border ${cat.border}">
+                  <i class="${cat.icon} text-[10px]"></i>
+                  ${cat.label.split('&')[0]}
+                </span>
+                <span class="inline-flex items-center gap-1 text-[10px] px-2 py-0.5 rounded-full font-bold border ${freq.class}">
+                  <i class="${freq.icon} text-[9px]"></i>
+                  ${freq.label}
+                </span>
+              </div>
+
+              <!-- Top Fast Actions -->
+              <div class="flex items-center space-x-1 shrink-0">
+                <button onclick="togglePin('${item.id}')" title="${item.isPinned ? 'ยกเลิกการปักหมุด' : 'ปักหมุดใน Morning Routine'}" class="p-1.5 rounded-lg text-slate-400 hover:text-amber-500 hover:bg-slate-100 transition">
+                  <i class="fa-${item.isPinned ? 'solid' : 'regular'} fa-star ${item.isPinned ? 'text-amber-400' : ''} text-sm"></i>
+                </button>
+                <button onclick="copyProjectUrl('${escapeHtml(item.url)}')" title="คัดลอกลิงก์" class="p-1.5 rounded-lg text-slate-400 hover:text-sky-600 hover:bg-slate-100 transition">
+                  <i class="fa-regular fa-copy text-sm"></i>
+                </button>
+                <button onclick="editProject('${item.id}')" title="แก้ไข" class="p-1.5 rounded-lg text-slate-400 hover:text-sky-600 hover:bg-slate-100 transition">
+                  <i class="fa-solid fa-pen-to-square text-sm"></i>
+                </button>
+                <button onclick="confirmDeleteProject('${item.id}')" title="ลบงานนี้" class="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-slate-100 transition">
+                  <i class="fa-regular fa-trash-can text-sm"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Title & Description -->
+            <h4 class="text-sm font-extrabold text-slate-900 mb-1.5 line-clamp-1 group-hover:text-sky-600 transition">
+              ${escapeHtml(item.title)}
+            </h4>
+            <p class="text-xs text-slate-500 leading-relaxed line-clamp-2 min-h-[2.5rem] mb-3 font-normal">
+              ${escapeHtml(item.description || 'ไม่มีคำอธิบายเพิ่มเติมสำหรับระบบนี้')}
+            </p>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-1.5 mt-auto pt-2">
+              ${tagBadges}
+            </div>
+          </div>
+
+          <!-- Bottom Action Footer -->
+          <div class="px-5 py-3 bg-slate-50/80 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[11px] text-slate-400 flex items-center gap-1 font-mono truncate max-w-[140px]">
+              <i class="fa-solid fa-link text-[10px]"></i>
+              ${cleanUrlDisplay(item.url)}
+            </span>
+            <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" 
+               onclick="recordOpen('${item.id}')"
+               class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-slate-900 hover:bg-sky-600 active:scale-95 text-white rounded-xl text-xs font-bold shadow-xs transition-all">
+              <span>เปิดใช้งาน</span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+            </a>
+          </div>
+        </div>
+      `;
+    }
+
+    function setFilter(cat) {
+      state.currentFilter = cat;
+      document.querySelectorAll('.filter-pill').forEach(btn => {
+        if (btn.dataset.filter === cat) {
+          btn.className = 'filter-pill active-pill px-3 py-1.5 rounded-xl border border-transparent bg-slate-900 text-white font-bold whitespace-nowrap';
+        } else {
+          btn.className = 'filter-pill px-3 py-1.5 rounded-xl border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 font-semibold whitespace-nowrap';
+        }
+      });
+      renderProjects();
+    }
+
+    function setViewMode(mode) {
+      state.viewMode = mode;
+      saveState();
+      updateViewToggleButtons();
+      renderProjects();
+    }
+
+    function updateViewToggleButtons() {
+      const groupedBtn = document.getElementById('viewGroupedBtn');
+      const flatBtn = document.getElementById('viewFlatBtn');
+      if (state.viewMode === 'grouped') {
+        groupedBtn.className = 'px-2.5 py-1.5 rounded-lg font-bold transition flex items-center gap-1.5 bg-white text-slate-900 shadow-xs';
+        flatBtn.className = 'px-2.5 py-1.5 rounded-lg font-semibold transition flex items-center gap-1.5 text-slate-600 hover:text-slate-900';
+      } else {
+        flatBtn.className = 'px-2.5 py-1.5 rounded-lg font-bold transition flex items-center gap-1.5 bg-white text-slate-900 shadow-xs';
+        groupedBtn.className = 'px-2.5 py-1.5 rounded-lg font-semibold transition flex items-center gap-1.5 text-slate-600 hover:text-slate-900';
+      }
+    }
+
+    function handleSearch(val) {
+      state.searchQuery = val;
+      const clearBtn = document.getElementById('clearSearchBtn');
+      if (val) {
+        clearBtn.classList.remove('hidden');
+      } else {
+        clearBtn.classList.add('hidden');
+      }
+      renderProjects();
+    }
+
+    function clearSearch() {
+      const input = document.getElementById('searchInput');
+      input.value = '';
+      handleSearch('');
+      input.focus();
+    }
+
+    function openCategoryUrls(catKey) {
+      const items = state.projects.filter(p => p.category === catKey);
+      if (items.length === 0) return;
+      items.forEach(p => {
+        window.open(p.url, '_blank');
+        recordOpen(p.id);
+      });
+      showToast(`เปิดลิงก์ในหมวดหมู่ทั้งหมด ${items.length} แท็บ`);
+    }
+
+    function copyProjectUrl(url) {
+      const tempInput = document.createElement('textarea');
+      tempInput.value = url;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+      showToast('คัดลอกลิงก์ไปยังคลิปบอร์ดแล้ว');
+    }
+
+    function handleProjectSubmit(e) {
+      e.preventDefault();
+      const id = document.getElementById('formProjectId').value;
+      const title = document.getElementById('formTitle').value.trim();
+      const category = document.getElementById('formCategory').value;
+      const frequency = document.getElementById('formFrequency').value;
+      const url = document.getElementById('formUrl').value.trim();
+      const description = document.getElementById('formDescription').value.trim();
+      const tagsRaw = document.getElementById('formTags').value;
+      const isPinned = document.getElementById('formIsPinned').checked;
+
+      const tags = tagsRaw ? tagsRaw.split(',').map(t => t.trim()).filter(Boolean) : [];
+
+      if (id) {
+        const idx = state.projects.findIndex(p => p.id === id);
+        if (idx !== -1) {
+          state.projects[idx] = { ...state.projects[idx], title, category, frequency, url, description, tags, isPinned };
+          showToast('อัปเดตข้อมูลระบบเรียบร้อย');
+        }
+      } else {
+        const newProj = {
+          id: 'proj_' + Date.now(),
+          title,
+          category,
+          frequency,
+          url,
+          description,
+          tags,
+          isPinned,
+          lastOpened: null
+        };
+        state.projects.unshift(newProj);
+        showToast('เพิ่มรายการใหม่เข้าสู่ผังแล้ว');
+      }
+
+      saveState();
+      renderAll();
+      closeModal('projectModal');
+    }
+
+    function editProject(id) {
+      const proj = state.projects.find(p => p.id === id);
+      if (!proj) return;
+
+      document.getElementById('modalTitle').innerText = 'แก้ไขข้อมูลงาน';
+      document.getElementById('formProjectId').value = proj.id;
+      document.getElementById('formTitle').value = proj.title;
+      document.getElementById('formCategory').value = proj.category;
+      document.getElementById('formFrequency').value = proj.frequency || 'daily';
+      document.getElementById('formUrl').value = proj.url;
+      document.getElementById('formDescription').value = proj.description || '';
+      document.getElementById('formTags').value = (proj.tags || []).join(', ');
+      document.getElementById('formIsPinned').checked = !!proj.isPinned;
+
+      openModal('projectModal');
+    }
+
+    let pendingDeleteId = null;
+    function confirmDeleteProject(id) {
+      const proj = state.projects.find(p => p.id === id);
+      if (!proj) return;
+
+      pendingDeleteId = id;
+      document.getElementById('confirmModalTitle').innerText = 'ยืนยันการลบระบบนี้?';
+      document.getElementById('confirmModalMessage').innerText = `ต้องการลบ "${proj.title}" ออกจาก Workspace ใช่หรือไม่?`;
+      
+      const modal = document.getElementById('confirmModal');
+      const okBtn = document.getElementById('confirmOkBtn');
+      const cancelBtn = document.getElementById('confirmCancelBtn');
+
+      modal.classList.remove('hidden');
+
+      okBtn.onclick = () => {
+        state.projects = state.projects.filter(p => p.id !== pendingDeleteId);
+        saveState();
+        renderAll();
+        modal.classList.add('hidden');
+        showToast('ลบรายการงานเรียบร้อย');
+      };
+
+      cancelBtn.onclick = () => {
+        modal.classList.add('hidden');
+      };
+    }
+
+    function togglePin(id) {
+      const proj = state.projects.find(p => p.id === id);
+      if (!proj) return;
+      proj.isPinned = !proj.isPinned;
+      saveState();
+      renderAll();
+      showToast(proj.isPinned ? 'เพิ่มใน Morning Routine แล้ว' : 'ปลดหมุดเรียบร้อย');
+    }
+
+    function recordOpen(id) {
+      const proj = state.projects.find(p => p.id === id);
+      if (proj) {
+        proj.lastOpened = new Date().toISOString();
+        saveState();
+      }
+    }
+
+    function renderTodoList() {
+      const list = document.getElementById('todoList');
+      if (state.todos.length === 0) {
+        list.innerHTML = `<p class="text-[11px] text-slate-400 text-center py-4">ไม่มีงานค้าง พิมพ์งานใหม่แล้วกดเพิ่มได้ทันที</p>`;
+        return;
+      }
+
+      list.innerHTML = state.todos.map(t => `
+        <div class="flex items-center justify-between p-2.5 rounded-xl border ${t.done ? 'bg-slate-50 border-slate-200 opacity-60' : 'bg-white border-slate-200 shadow-xs'}">
+          <label class="flex items-center gap-2 text-xs flex-1 cursor-pointer">
+            <input type="checkbox" ${t.done ? 'checked' : ''} onchange="toggleTodo('${t.id}')" class="rounded text-indigo-600 focus:ring-indigo-500">
+            <span class="${t.done ? 'line-through text-slate-400' : 'text-slate-800 font-bold'}">${escapeHtml(t.text)}</span>
+          </label>
+          <button onclick="removeTodo('${t.id}')" class="text-slate-300 hover:text-rose-500 p-1 text-xs">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      `).join('');
+    }
+
+    function addTodo() {
+      const input = document.getElementById('newTodoInput');
+      const val = input.value.trim();
+      if (!val) return;
+      state.todos.unshift({ id: 'todo_' + Date.now(), text: val, done: false });
+      input.value = '';
+      saveState();
+      renderTodoList();
+    }
+
+    function toggleTodo(id) {
+      const t = state.todos.find(i => i.id === id);
+      if (t) {
+        t.done = !t.done;
+        saveState();
+        renderTodoList();
+      }
+    }
+
+    function removeTodo(id) {
+      state.todos = state.todos.filter(t => t.id !== id);
+      saveState();
+      renderTodoList();
+    }
+
+    function clearCompletedTodos() {
+      state.todos = state.todos.filter(t => !t.done);
+      saveState();
+      renderTodoList();
+      showToast('ล้างรายการที่เสร็จเรียบร้อย');
+    }
+
+    let scratchTimeout = null;
+    function handleScratchpadChange(val) {
+      state.scratchpad = val;
+      const status = document.getElementById('scratchSaveStatus');
+      status.innerText = 'กำลังพิมพ์...';
+      status.className = 'text-[10px] text-amber-500 font-bold';
+
+      clearTimeout(scratchTimeout);
+      scratchTimeout = setTimeout(() => {
+        saveState();
+        status.innerText = 'บันทึกอัตโนมัติแล้ว';
+        status.className = 'text-[10px] text-emerald-600 font-bold';
+      }, 600);
+    }
+
+    function toggleSidePanel() {
+      const panel = document.getElementById('sidePanel');
+      const overlay = document.getElementById('sidePanelOverlay');
+      const isOpen = !panel.classList.contains('translate-x-full');
+
+      if (isOpen) {
+        panel.classList.add('translate-x-full');
+        overlay.classList.add('hidden');
+      } else {
+        panel.classList.remove('translate-x-full');
+        overlay.classList.remove('hidden');
+      }
+    }
+
+    function openModal(modalId) {
+      if (modalId === 'projectModal') {
+        document.getElementById('projectForm').reset();
+        document.getElementById('formProjectId').value = '';
+        document.getElementById('modalTitle').innerText = 'เพิ่มรายการงานในผัง';
+      }
+      document.getElementById(modalId).classList.remove('hidden');
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.add('hidden');
+    }
+
+    function openDataSettingsModal() {
+      openModal('settingsModal');
+    }
+
+    function exportDataJson() {
+      const dataToSave = {
+        projects: state.projects,
+        todos: state.todos,
+        scratchpad: state.scratchpad,
+        exportedAt: new Date().toISOString()
+      };
+      const blob = new Blob([JSON.stringify(dataToSave, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `workspace_infographic_backup_${new Date().toISOString().slice(0, 10)}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast('ดาวน์โหลดไฟล์สำรองเรียบร้อย');
+    }
+
+    function handleFileImport(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const parsed = JSON.parse(e.target.result);
+          if (Array.isArray(parsed.projects)) {
+            state.projects = parsed.projects;
+            state.todos = Array.isArray(parsed.todos) ? parsed.todos : [];
+            state.scratchpad = parsed.scratchpad || '';
+            document.getElementById('scratchPadText').value = state.scratchpad;
+            saveState();
+            renderAll();
+            closeModal('settingsModal');
+            showToast('นำเข้าข้อมูลสำเร็จ');
+          } else {
+            showToast('โครงสร้างไฟล์ไม่ถูกต้อง', true);
+          }
+        } catch (err) {
+          showToast('อ่านไฟล์ JSON ไม่สำเร็จ', true);
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    function promptResetToDefault() {
+      const modal = document.getElementById('confirmModal');
+      document.getElementById('confirmModalTitle').innerText = 'รีเซ็ตเป็นข้อมูลตัวอย่าง';
+      document.getElementById('confirmModalMessage').innerText = 'ต้องการลบการปรับแต่งและคืนค่าชุดตัวอย่างดั้งเดิมใช่หรือไม่?';
+      modal.classList.remove('hidden');
+
+      document.getElementById('confirmOkBtn').onclick = () => {
+        state.projects = [...DEFAULT_PROJECTS];
+        state.todos = [...DEFAULT_TODOS];
+        state.scratchpad = 'โน้ตย่อสำคัญสำหรับการทำงานวันนี้:\n- ตรวจเช็กตัวเลขปิดยอดทุกสิ้นวัน';
+        document.getElementById('scratchPadText').value = state.scratchpad;
+        saveState();
+        renderAll();
+        modal.classList.add('hidden');
+        closeModal('settingsModal');
+        showToast('คืนค่าข้อมูลเริ่มต้นเรียบร้อย');
+      };
+
+      document.getElementById('confirmCancelBtn').onclick = () => {
+        modal.classList.add('hidden');
+      };
+    }
+
+    function setupKeyboardShortcuts() {
+      window.addEventListener('keydown', (e) => {
+        if (e.key === '/' && document.activeElement !== document.getElementById('searchInput') && document.activeElement.tagName !== 'TEXTAREA' && document.activeElement.tagName !== 'INPUT') {
+          e.preventDefault();
+          document.getElementById('searchInput').focus();
+        }
+        if (e.key === 'Escape') {
+          closeModal('projectModal');
+          closeModal('settingsModal');
+          closeModal('confirmModal');
+          const panel = document.getElementById('sidePanel');
+          if (!panel.classList.contains('translate-x-full')) {
+            toggleSidePanel();
+          }
+        }
+      });
+    }
+
+    function startClock() {
+      const timeElem = document.getElementById('clockTime');
+      const dateElem = document.getElementById('clockDate');
+      const update = () => {
+        const now = new Date();
+        timeElem.innerText = now.toLocaleTimeString('th-TH', { hour12: false });
+        dateElem.innerText = now.toLocaleDateString('th-TH', { weekday: 'short', day: 'numeric', month: 'short' });
+      };
+      update();
+      setInterval(update, 1000);
+    }
+
+    function cleanUrlDisplay(url) {
+      try {
+        const u = new URL(url);
+        return u.hostname;
+      } catch (e) {
+        return url;
+      }
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function showToast(msg, isError = false) {
+      const toast = document.getElementById('toast');
+      const icon = document.getElementById('toastIcon');
+      const text = document.getElementById('toastMessage');
+
+      text.innerText = msg;
+      icon.className = isError ? 'fa-solid fa-circle-exclamation text-rose-400' : 'fa-solid fa-circle-check text-emerald-400';
+
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 2600);
+    }
+
+    window.onload = function() {
+      initApp();
+    };
+  </script>
+</body>
+</html>
